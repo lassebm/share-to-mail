@@ -1,0 +1,74 @@
+name: ShareToMail
+options:
+  bundleIdPrefix: dk.lbm.sharetomail
+  deploymentTarget:
+    iOS: "26.0"
+  xcodeVersion: "26.0"
+
+configFiles:
+  Debug: local.xcconfig
+  Release: local.xcconfig
+
+settings:
+  base:
+    SWIFT_VERSION: "6.2"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+schemes:
+  ShareToMail:
+    build:
+      targets:
+        ShareToMail: all
+    run:
+      config: Debug
+
+targets:
+  ShareToMail:
+    type: application
+    platform: iOS
+    sources:
+      - ShareToMail
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dk.lbm.sharetomail.app
+    info:
+      path: ShareToMail/Info.plist
+      properties:
+        CFBundleDisplayName: Share to Mail
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+          - UIInterfaceOrientationPortraitUpsideDown
+    dependencies:
+      - target: ShareExtension
+
+  ShareExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - ShareExtension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dk.lbm.sharetomail.app.ShareExtension
+    info:
+      path: ShareExtension/Info.plist
+      properties:
+        CFBundleDisplayName: Share to Mail
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.share-services
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ShareViewController
+          NSExtensionAttributes:
+            NSExtensionActivationRule:
+              NSExtensionActivationSupportsWebURLWithMaxCount: 1
+              NSExtensionActivationSupportsWebPageWithMaxCount: 1
+              NSExtensionActivationSupportsText: true
+              NSExtensionActivationSupportsImageWithMaxCount: 10
+              NSExtensionActivationSupportsFileWithMaxCount: 5
+    dependencies:
+      - framework: MessageUI.framework
+        embed: false
+      - framework: UniformTypeIdentifiers.framework
+        embed: false
