@@ -4,6 +4,20 @@ An iOS app that adds a "Share to Mail" option to the native share sheet, sending
 
 Share a URL from Safari, a photo from Photos, a PDF from Files — it opens a pre-filled Mail compose sheet with the recipient already set. One tap to send.
 
+## Why Share to Mail?
+
+Sharing content to yourself is a universal need — saving links, forwarding articles, collecting references. Most people reach for Notes, read-later apps, or messaging threads. Email is better:
+
+- **Universal inbox.** Email is the one app that works everywhere — phone, laptop, work computer, someone else's browser. Notes, Reminders, and read-later apps lock content into one ecosystem or require installing yet another app.
+- **Already part of your workflow.** Most people process their inbox daily. Shared items land right where you already look, instead of piling up in a Notes folder you forget to check.
+- **Searchable by default.** Email has decades of search infrastructure. Finding that link you saved six months ago is a search query away — no tagging, no folders, no special organization needed.
+- **Forwarding is built in.** Shared something to yourself that turns out to be useful for a colleague? Forward it. With Notes or read-later apps, you'd copy the content, open Mail, paste, and send — three extra steps.
+- **No account required.** No sign-ups, no sync services, no cloud subscriptions. If you have an email address, you're set.
+- **Works with everything.** URLs get a clean body link. Images and PDFs arrive as proper attachments. Text is just text. The email you receive is a self-contained, portable record — not a proprietary format tied to one app.
+- **One tap, zero friction.** Share sheet → Mail compose → Send. The recipient is pre-filled, the content is already attached. Compare this to: open Notes → find the right note → paste → go back. Or: open a read-later app → wait for sync → hope the bookmark parsed correctly.
+
+The best capture system is the one you already use. For most people, that's email.
+
 ## Install from Release
 
 Download the latest `ShareToMail.ipa` from [Releases](../../releases/latest) and open it in AltStore or Sideloadly to sign and install.
