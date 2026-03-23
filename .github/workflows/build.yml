@@ -17,7 +17,9 @@ jobs:
         run: brew install xcodegen
 
       - name: Generate Xcode project
-        run: xcodegen generate
+        run: |
+          touch local.xcconfig
+          xcodegen generate
 
       - name: Build unsigned IPA
         run: ./scripts/build-ipa.sh
