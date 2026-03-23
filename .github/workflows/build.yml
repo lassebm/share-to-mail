@@ -1,0 +1,37 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Build unsigned IPA
+        run: ./scripts/build-ipa.sh
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: Build ${{ github.run_number }}
+          body: |
+            Automated build from commit ${{ github.sha }}.
+
+            **Install with AltStore/Sideloadly:**
+            1. Download `ShareToMail.ipa`
+            2. Open in AltStore or Sideloadly to sign and install
+          files: build/ShareToMail.ipa
+          make_latest: true

@@ -41,3 +41,4 @@ Two targets defined in `project.yml` (XcodeGen):
 - `DEVELOPMENT_TEAM` is set via `local.xcconfig` (gitignored); `local.xcconfig.example` is the committed template
 - IPA is built unsigned (`CODE_SIGNING_ALLOWED=NO`); AltStore/AltServer signs it on the user's device
 - Bundle IDs: `dk.lbm.sharetomail.app` (main), `dk.lbm.sharetomail.app.ShareExtension` (extension)
+- GitHub Actions builds and releases an unsigned IPA on every push to `main`

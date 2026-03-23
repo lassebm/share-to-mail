@@ -4,6 +4,10 @@ An iOS app that adds a "Share to Mail" option to the native share sheet, sending
 
 Share a URL from Safari, a photo from Photos, a PDF from Files — it opens a pre-filled Mail compose sheet with the recipient already set. One tap to send.
 
+## Install from Release
+
+Download the latest `ShareToMail.ipa` from [Releases](../../releases/latest) and open it in AltStore or Sideloadly to sign and install.
+
 ## Requirements
 
 - iOS 26+
