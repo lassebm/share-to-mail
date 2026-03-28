@@ -8,16 +8,32 @@ class ShareViewController: UIViewController, @preconcurrency MFMailComposeViewCo
     static let setEmailTrigger = "sharetomail:set-email"
 
     private let spinner = UIActivityIndicatorView(style: .large)
+    private let iconView = UIImageView()
     private var hasPresented = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
+
+        iconView.image = UIImage(named: "AppIcon")
+        iconView.contentMode = .scaleAspectFit
+        iconView.layer.cornerRadius = 24
+        iconView.layer.cornerCurve = .continuous
+        iconView.clipsToBounds = true
+        iconView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(iconView)
+
         spinner.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(spinner)
+
         NSLayoutConstraint.activate([
+            iconView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            iconView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -20),
+            iconView.widthAnchor.constraint(equalToConstant: 120),
+            iconView.heightAnchor.constraint(equalToConstant: 120),
+
             spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            spinner.topAnchor.constraint(equalTo: iconView.bottomAnchor, constant: 32),
         ])
         spinner.startAnimating()
     }
